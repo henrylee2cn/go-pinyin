@@ -1,100 +1,100 @@
 package pinyin_test
 
 import (
-	"fmt"
-	"github.com/mozillazg/go-pinyin"
+	"github.com/henrylee2cn/pholcus/common/pinyin"
+	"testing"
 )
 
-func ExamplePinyin_default() {
+func TestExamplePinyin_default(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
-	fmt.Println("default:", pinyin.Pinyin(hans, a))
+	t.Log("default:", pinyin.Pinyin(hans, a))
 	// Output: default: [[zhong] [guo] [ren]]
 }
 
-func ExamplePinyin_normal() {
+func TestExamplePinyin_normal(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.Normal
-	fmt.Println("Normal:", pinyin.Pinyin(hans, a))
+	t.Log("Normal:", pinyin.Pinyin(hans, a))
 	// Output: Normal: [[zhong] [guo] [ren]]
 }
 
-func ExamplePinyin_tone() {
+func TestExamplePinyin_tone(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.Tone
-	fmt.Println("Tone:", pinyin.Pinyin(hans, a))
+	t.Log("Tone:", pinyin.Pinyin(hans, a))
 	// Output: Tone: [[zhōng] [guó] [rén]]
 }
 
-func ExamplePinyin_tone2() {
+func TestExamplePinyin_tone2(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.Tone2
-	fmt.Println("Tone2:", pinyin.Pinyin(hans, a))
+	t.Log("Tone2:", pinyin.Pinyin(hans, a))
 	// Output: Tone2: [[zho1ng] [guo2] [re2n]]
 }
 
-func ExamplePinyin_initials() {
+func TestExamplePinyin_initials(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.Initials
-	fmt.Println("Initials:", pinyin.Pinyin(hans, a))
+	t.Log("Initials:", pinyin.Pinyin(hans, a))
 	// Output: Initials: [[zh] [g] [r]]
 }
 
-func ExamplePinyin_firstLetter() {
+func TestExamplePinyin_firstLetter(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.FirstLetter
-	fmt.Println(pinyin.Pinyin(hans, a))
+	t.Log(pinyin.Pinyin(hans, a))
 	// Output: [[z] [g] [r]]
 }
 
-func ExamplePinyin_finals() {
+func TestExamplePinyin_finals(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.Finals
-	fmt.Println(pinyin.Pinyin(hans, a))
+	t.Log(pinyin.Pinyin(hans, a))
 	// Output: [[ong] [uo] [en]]
 }
 
-func ExamplePinyin_finalsTone() {
+func TestExamplePinyin_finalsTone(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.FinalsTone
-	fmt.Println(pinyin.Pinyin(hans, a))
+	t.Log(pinyin.Pinyin(hans, a))
 	// Output: [[ōng] [uó] [én]]
 }
 
-func ExamplePinyin_finalsTone2() {
+func TestExamplePinyin_finalsTone2(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Style = pinyin.FinalsTone2
-	fmt.Println(pinyin.Pinyin(hans, a))
+	t.Log(pinyin.Pinyin(hans, a))
 	// Output: [[o1ng] [uo2] [e2n]]
 }
 
-func ExamplePinyin_heteronym() {
+func TestExamplePinyin_heteronym(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
 	a.Heteronym = true
 	a.Style = pinyin.Tone2
-	fmt.Println(pinyin.Pinyin(hans, a))
+	t.Log(pinyin.Pinyin(hans, a))
 	// Output: [[zho1ng zho4ng] [guo2] [re2n]]
 }
 
-func ExampleLazyPinyin() {
+func TestExampleLazyPinyin(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
-	fmt.Println(pinyin.LazyPinyin(hans, a))
+	t.Log(pinyin.LazyPinyin(hans, a))
 	// Output: [zhong guo ren]
 }
 
-func ExampleSlug() {
+func TestExampleSlug(t *testing.T) {
 	hans := "中国人"
 	a := pinyin.NewArgs()
-	fmt.Println(pinyin.Slug(hans, a))
+	t.Log(pinyin.Slug(hans, a))
 	// Output: zhong-guo-ren
 }
